@@ -2,4 +2,4 @@
 
 ## Sobre este proyecto
 
-## Proyecto para un sistema de ventas de un canal de distribucion de simcard, Recargas y Celulares.
+## Proyecto para un sistema de ventas de un canal de distribución de simcard, Recargas y Celulares.
