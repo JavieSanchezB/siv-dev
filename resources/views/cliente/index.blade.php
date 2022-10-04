@@ -12,7 +12,7 @@
                 <a href="{{url('/')}}">Inicio</a>
             </li>
             <li>
-                <a href="{{url('circuito.index')}}">Listar Circuitos</a>
+                <a href="{{url('cliente.index')}}">Listar Clientes</a>
             </li>
         </ul>
     </div>
@@ -35,7 +35,7 @@
         <div class="box col-md-12">
             <div class="box-inner">
                 <div class="box-header well" data-original-title="">
-                    <h2><i class="glyphicon glyphicon-star"></i> Listar Circuitos</h2>
+                    <h2><i class="glyphicon glyphicon-star"></i> Listar Clientes</h2>
 
                      <div class="box-icon">
                         <a href="#" class="btn btn-minimize btn-round btn-default"><i
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <div class="box-content">
-				  <form method="GET" action="{{route('circuito.index')}}" id="Formuario" role="form" data-toggle="validator" autocomplete="off">
+				  <form method="GET" action="{{route('cliente.index')}}" id="Formuario" role="form" data-toggle="validator" autocomplete="off">
                     <div class="table-responsive">
                         <table class="table table-bordered table-striped" id="example">
 						<div class="row">
@@ -53,12 +53,12 @@
 
 							<div class="col-lg-3 col-md-4">
                                 <div class="form-group has-feedback">
-                                    <label for="circuito">CIRCUITO</label>
+                                    <label for="clientes">Clientes</label>
 
-                                    <select class="form-control" name="circuito" id="circuito" data-rel="chosen" data-placeholder="Escoger Circuito">
+                                    <select class="form-control" name="cliente" id="cliente" data-rel="chosen" data-placeholder="Escoger cliente">
 										 <option></option>
-                                        @foreach($circuitos as $circuito)
-										<option value="{{ $circuito['circuito'] }}">{{ $circuito['circuito'] }}</option>
+                                        @foreach($clientes as $cliente)
+										<option value="{{ $cliente['cliente'] }}">{{ $cliente['cc_nit'] }}</option>
 										@endforeach
                                     </select>
                                     <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
@@ -81,9 +81,22 @@
 
                             <th> # </th>
                             
-                            <th>CIRCUITO</th>
-                           
-             
+                            <th>Primer Nombre</th>
+                            <th>Segundo Nombre</th>
+                            <th>Primer Apellido</th>
+                            <th>Segundo Apellido</th>
+                            <th>Razón Social</th>
+                            <th>Contacto #1</th>
+                            <th>Contacto #2</th>
+                            <th>Nombre a contactar</th>
+
+                            <th>Correo</th>
+                            <th>Dirección</th>
+                            <th>Barrio</th>
+                            <th>Ciudad</th>
+                            <th>Tipo De Punto</th>
+                            
+
                             <th> FECHA DE CREACION</th>
                             <th> FECHA DE MODIFICACION</th>
                             <th> EDITAR</th>
@@ -93,14 +106,27 @@
                             
                             </thead>
                             <tbody>
-                            @foreach($circuitos as $circuito)
-                                <tr data-id="{{$circuito->id}}">
+                            @foreach($clientes as $cliente)
+                                <tr data-id="{{$cliente->id}}">
                                     
-                                    <td>{{$circuito->id}}</td>                                
-                                    <td>{{$circuito->circuito}}</td>                                
-                                    <td>{{$circuito->created_at}}</td>
-                                    <td>{{$circuito->updated_at}}</td>
-                                    <td><a class="btn btn-success" id="update" value="Update" href="{{ route('circuito.update', ['id' => $circuito->id]) }}"><i class="glyphicon glyphicon-pencil"></i>EDITAR</a></td>
+                                    <td>{{$cliente->id}}</td>                                
+                                    <td>{{$cliente->primer_nombre}}</td>                                
+                                    <td>{{$cliente->segundo_nombre}}</td>                                
+                                    <td>{{$cliente->primer_apellido}}</td>                                
+                                    <td>{{$cliente->segundo_apellido}}</td> 
+                                    <td>{{$cliente->razon_social}}</td> 
+
+                                    <td>{{$cliente->telefono_1}}</td>                                
+                                    <td>{{$cliente->telefono_2}}</td>                               
+                                    <td>{{$cliente->contacto}}</td>                               
+                                    <td>{{$cliente->correo}}</td>
+                                    <td>{{$cliente->direccion}}</td>
+                                    <td>{{$cliente->barrio}}</td> 
+                                    <td>{{$cliente->ciudad}}</td>                                                                                               
+                                    <td>{{$cliente->tipo_de_negocio}}</td>                                
+                                    <td>{{$cliente->created_at}}</td>
+                                    <td>{{$cliente->updated_at}}</td>
+                                    <td><a class="btn btn-success" id="update" value="Update" href="{{ route('cliente.update', ['id' => $cliente->id]) }}"><i class="glyphicon glyphicon-pencil"></i>EDITAR</a></td>
                                 <!--    <td><a class="btn btn-danger" href="#"><i class="glyphicon glyphicon-remove"></i>ELIMINAR</a></td>-->
                                 </tr>
                             @endforeach
